@@ -76,11 +76,11 @@
 
     render: function () {
 		var component = this;
-        $.getJSON('./Chat/GetNewUserId/?userName=' + UserName).then(function (userId) {
+        $.getJSON('./Chat/GetNewUserId').then(function (user) {
             component.setState({
                 UserInitialized: true, 
-                UserName: UserName, 
-                UserId: userId            
+                UserName: {user_name}, 
+                UserId: {user_Id}
             });
         });
 

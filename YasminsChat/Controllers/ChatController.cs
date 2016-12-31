@@ -29,20 +29,21 @@ namespace YasminsChat.Controllers
         public ViewResult JoinChatRoom(string userNameTxt)
         {
             User user = YasminsChatDataAccess.GetLogedinUser(userNameTxt);
+            TempData["User"] = user;
             List<Message> messages = YasminsChatDataAccess.GetAllMessages();
             //_chatHub.SendUsersList(YasminsChatDataAccess.GetAllUsers());//new
             _chatHub.SendAllPreviouseMsgs(messages);
             
-            return View("ChatRoom", user.user_Id);
+            return View("ChatRoom");
         }
 
-        public JsonResult GetNewUserId(String userName)
+        public JsonResult GetNewUserId()
         {
-            User user = YasminsChatDataAccess.GetLogedinUser(userName);
-
+            User user = (User)TempData["User"];//YasminsChatDataAccess.GetLogedinUser(userName);
+            TempData.Clear();
             //broadcast the user list to all the clients
             _chatHub.SendUsersList(YasminsChatDataAccess.GetAllUsers());
-            return Json(user.user_Id);
+            return Json(user, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult GetAllMsgs()

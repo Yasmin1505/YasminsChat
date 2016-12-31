@@ -27,5 +27,6 @@ namespace YasminsChat.Models.Hubs
             IHubContext context = GlobalHost.ConnectionManager.GetHubContext("YasminsHub");
             context.Clients.All.pushPrevMsgsList(msgsLst);
         }
+        
     }
 }
