@@ -12,10 +12,10 @@
     },
 
 	pushPrevMsgsList: function(msgsLst){
-		var msgs = this.state.Messages;;
+		var msgs = this.state.Messages;
 		for(var i = 0; i < msgsLst.length; i++)
 		{
-		 msgs.push({
+		  msgs.push({
             Id: msgsLst[i].msg_Id,
             UserId: msgsLst[i].sender_Id,
             UserName: msgLst[i].User.user_name,
@@ -76,10 +76,10 @@
 
     render: function () {
 		var component = this;
-        $.getJSON('./Chat/GetNewUserId/?userName=' + userName).then(function (userId) {
+        $.getJSON('./Chat/GetNewUserId/?userName=' + UserName).then(function (userId) {
             component.setState({
                 UserInitialized: true, 
-                UserName: userName, 
+                UserName: UserName, 
                 UserId: userId            
             });
         });
