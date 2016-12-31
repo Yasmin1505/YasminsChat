@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+            body {
+                background: url(../Images/DSC04724.JPG) no-repeat center center fixed; 
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+           
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <div style="padding-top:70px;">
+                @using(@Html.BeginForm("JoinChatRoom", "Chat", FormMethod.Post))
+                {
+                    <span style="font-weight:bold; font-size:150%;">User Name : </span>
+                    @Html.TextBox("UserNameTxt", null, new { @required = true})
+                    <input type="submit" name="Go!" value=" Go! " />
+                }
+            </div>
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+    <div class="container body-content" >
+        <footer class="modal-footer navbar-fixed-bottom">
+            <p style="color:white; text-align:left; font-weight:bold;">&copy; @DateTime.Now.Year - Yasmins Chat (PC: Yasmin Shklovski)</p>
+        </footer>
+    </div>
+</body>
+</html>
